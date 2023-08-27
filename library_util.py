@@ -4,22 +4,43 @@ import pandas as pd
 from scipy import stats
 import statsmodels.tsa.stattools as ts
 
-
-def covariance(x: np.ndarray, y: np.ndarray) -> float:
-    """ Covariance between x and y
+# Functions required in Univariate transformation
+def square(x: np.ndarray) -> float:
+    """ 2nd polynomial order of x
     """
-    cov_xy = np.cov(x, y)[0][1]
+    square = np.power(x,2)
 
-    return cov_xy
+    return square
 
-
-def co_integration(x: np.ndarray, y: np.ndarray):
-    """ Co-integration test between x and y
+def cubic(x: np.ndarray) -> float:
+    """ 3rd order polynomial of x
     """
-    r, _, _ = ts.coint(x, y)
+    cubic = np.power(x,3)
 
-    return r
+    return cubic
 
+def power4(x: np.ndarray) -> float:
+    """ 4th order polynomial of x
+    """
+    power4 = np.power(x,4)
+
+    return power4
+
+def sqrt(x: np.ndarray) -> float:
+    """ sqrt of x
+    """
+    sqrt = np.sqrt(x)
+
+    return sqrt
+
+def log(x: np.ndarray) -> float:
+    """ ln of x
+    """
+    log = np.log(x)
+
+    return log
+
+# Functions required in Bivariate Transformation
 
 def correlation(x: np.ndarray,
                 y: np.ndarray,
